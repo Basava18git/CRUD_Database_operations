@@ -35,7 +35,7 @@ namespace CRUD_Database_operations
             cmd1.Parameters.AddWithValue("@Gender", textBox3.Text);
             cmd1.ExecuteNonQuery();
             Connection1.Close();
-            MessageBox.Show("Successfully Executed and saved Data");
+           // MessageBox.Show("Successfully Executed and saved Data");
             textBox1.Clear();
             textBox2.Clear();
             textBox3.Clear();
@@ -67,7 +67,7 @@ namespace CRUD_Database_operations
 
             cmd2.ExecuteNonQuery();
             Connection1.Close();
-            MessageBox.Show("Successfully Executed and Deleted Data");
+          //  MessageBox.Show("Successfully Executed and Deleted Data");
             textBox2.Clear();
         }
         #endregion
@@ -97,11 +97,16 @@ namespace CRUD_Database_operations
             cmd1.Parameters.AddWithValue("@Gender", textBox3.Text);
             cmd1.ExecuteNonQuery();
             Connection1.Close();
-            MessageBox.Show("Successfully Executed and Updated Data");
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+
+            //  MessageBox.Show("Successfully Executed and Updated Data");
         }
         #endregion
 
-
+        public string x;
 
         #region SearchOrSortData
         private void Search_Click(object sender, EventArgs e)
@@ -118,9 +123,10 @@ namespace CRUD_Database_operations
                 MessageBox.Show(ex.Message);
             }
 
-            SqlCommand cmd1 = new SqlCommand("Select*From USER_DATA", Connection1);
+            SqlCommand cmd1 = new SqlCommand($"Select*From USER_DATA",Connection1);
 
-            //cmd1.Parameters.AddWithValue("@ID", int.Parse(textBox2.Text));
+            
+           // cmd1.Parameters.AddWithValue("@ID", int.Parse(textBox2.Text));
 ;
             cmd1.ExecuteNonQuery();
             Connection1.Close();
